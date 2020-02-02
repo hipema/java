@@ -43,8 +43,8 @@ public class Fraccion {
 		return this.toString();
 	}
 	
-	public float obtenerResultado () {
-		return (float) this.getNumerador()/this.getDenominador();
+	public double obtenerResultado () {
+		return (double) this.getNumerador()/this.getDenominador();
 	}
 	
 	public void multiplicaNumero (int numero) {

@@ -55,24 +55,18 @@ public class Fecha {
 	
 	// Sumar un día
 	public Fecha sumarUnDia () {
-		int dia, mes, ultimoDiaMes;
-		int[] diasMes = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-        if (Fecha.esBisiesto(this.anyo)) {
-        	diasMes[1] = 29;
+		int dia, mes, anyo;
+    dia = this.dia+1;
+    mes = this.mes;
+    anyo = this.anyo;
+    if (dia > Fecha.diaMaximoMes(this.mes, this.anyo)) {
+    		dia = 1;
+        mes += 1;
+        if (mes > 12) {
+        	mes = 1;
+        	anyo += 1;
         }
-        dia = this.dia;
-        mes = this.mes;
-        anyo = this.anyo;
-        ultimoDiaMes = diasMes[this.mes-1];
-        dia += 1;
-        if (dia > ultimoDiaMes) {
-        	dia = 1;
-        	mes += 1;
-        	if (mes > 12) {
-        		mes = 1;
-        		anyo += 1;
-        	}
-        }
+    }
     return new Fecha(dia,mes,anyo);
 	}
 	
@@ -84,7 +78,55 @@ public class Fecha {
 	}
 	
 	// Restar 1 día
+	public Fecha restarUnDia () {
+		int dia, mes, anyo;
+    dia = this.dia-1;
+    mes = this.mes;
+    anyo = this.anyo;
+    if (dia == 0) {
+    		mes -= 1;
+    		if (mes == 0) {
+    			mes = 12;
+    			anyo -= 1;
+    		}
+        dia = Fecha.diaMaximoMes(mes, anyo);
+    }
+    return new Fecha(dia,mes,anyo);
+	}
 	
+	// Restar n días.
+	public void restarNDias (int value) {
+		for (int i=0; i < value; i++) {
+			this.restarUnDia();
+		}
+	}
+	
+	// Devuelve la fecha numérica
+	public int fechaNumerica () {
+		String fecha;
+		int resultado;
+		fecha = "".concat(Integer.toString(this.anyo));
+		if (this.mes < 10) {
+			fecha += "0".concat(Integer.toString(this.mes));
+		} else {
+			fecha += "".concat(Integer.toString(this.mes));
+		}
+		if (this.dia <10) {
+			fecha += "0".concat(Integer.toString(this.dia));
+		} else {
+			fecha += "".concat(Integer.toString(this.dia));
+		}
+		resultado = Integer.parseInt(fecha);
+		return resultado;
+	}
+	
+	// Compara fechas
+	public int comparaFechas(Fecha otro) {
+		int fecha1, fecha2;
+		fecha1 = this.fechaNumerica();
+		fecha2 = otro.fechaNumerica();
+		return fecha1-fecha2;
+	}
 	
 	// Métodos estáticos
 	static boolean fechaCorrecta (int dia, int mes, int anyo) {
@@ -108,4 +150,16 @@ public class Fecha {
 		return (anyo % 400 == 0 || (anyo % 4 == 0 && anyo % 100 != 0));
 	}
 	
+	static int diaMaximoMes(int mes, int anyo) {
+		int[] diasMes = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        if (Fecha.esBisiesto(anyo)){
+            diasMes[1] = 29;
+        }
+    return diasMes[mes- 1];
+	}
+	
+	// Sobrecarga
+	public String toString() {
+		return this.dia + " de "+ this.nombreMes() +" de "+ this.anyo;
+	}
 }

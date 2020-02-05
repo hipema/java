@@ -1,4 +1,5 @@
 package poo;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -10,43 +11,42 @@ import javax.swing.JOptionPane;
  */
 public class Circulo {
 // Atributos
-	private double radio;
-	
-// Constructor
-	Circulo (double radio){
-		this.radio = radio;
-	}		
-	
-// Getters y setters
-	public double getRadio() {
-		return radio;
-	}
+  private double radio;
 
-	public void setRadio(double radio) {
-		String mensaje = JOptionPane.showInputDialog("Soy un mísero punto sin área");
-		if (radio == 0) {
-			System.out.println(mensaje);
-		}
-		this.radio = radio;
-	}
+// Constructor
+  Circulo(double radio) {
+    this.radio = radio;
+  }
+
+// Getters y setters
+  public double getRadio() {
+    return radio;
+  }
+
+  public void setRadio(double radio) {
+    if (radio == 0) {
+      JOptionPane.showMessageDialog(null, "Soy un mísero punto sin área");
+    }
+    this.radio = radio;
+  }
 
 // Métodos de la clase
-	public double area () {
-		double area = Math.PI * Math.pow(this.getRadio(), 2);
-		return area;
-	}
-	
-	public void crecerCirculo (int valor) {
-		this.radio *= valor;
-	}
-	
-	public void menguarCirculo (int valor) {
-		this.radio /= valor;
-	}
-	
+  public double area() {
+    double area = Math.PI * Math.pow(this.getRadio(), 2);
+    return area;
+  }
+
+  public void crecerCirculo(int valor) {
+    this.radio *= valor;
+  }
+
+  public void menguarCirculo(int valor) {
+    this.radio /= valor;
+  }
+
 // Métodos
-	
-	public String toString () {
-		return "Soy un círculo de radio "+ this.radio + " metros. Ocupo un área de " + this.area() + " metros cuadrados.";
-	}
+
+  public String toString() {
+    return "Soy un círculo de radio " + this.radio + " metros. Ocupo un área de " + this.area() + " metros cuadrados.";
+  }
 }

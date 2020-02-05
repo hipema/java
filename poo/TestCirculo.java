@@ -40,5 +40,8 @@ public class TestCirculo {
 
     System.out.println("Cambiamos radio a 0");
     c1.setRadio(0);
+    
+    System.out.println("Modificamos el área del círculo");
+    c1.mostrarArea();
   }
 }

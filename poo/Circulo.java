@@ -5,7 +5,12 @@ import javax.swing.JOptionPane;
 /**
  * Esta clase crea objetos del tipo Círculo
  * 
- * @version 1.0
+ * ACTUALIZACIONES: Controlamos que el radio introducido pase siempre como valor
+ * absoluto. Modificamos la ventana emergente. Convertimos en privado el método
+ * área para evitar inconsistencia en el objeto. Para consultar el área por
+ * separado, creamos un método específico que devuelva el valor del área.
+ * 
+ * @version 2.0
  * @author manuelhidalgo
  *
  */
@@ -15,7 +20,7 @@ public class Circulo {
 
 // Constructor
   Circulo(double radio) {
-    this.radio = radio;
+    this.radio = Math.abs(radio);
   }
 
 // Getters y setters
@@ -27,21 +32,33 @@ public class Circulo {
     if (radio == 0) {
       JOptionPane.showMessageDialog(null, "Soy un mísero punto sin área");
     }
-    this.radio = radio;
+    this.radio = Math.abs(radio);
   }
 
 // Métodos de la clase
-  public double area() {
+  private double area() {
     double area = Math.PI * Math.pow(this.getRadio(), 2);
     return area;
   }
 
+  public double mostrarArea() {
+    return this.area();
+  }
+
   public void crecerCirculo(int valor) {
-    this.radio *= valor;
+    if (valor >= 0) {
+      this.radio *= valor;
+    } else {
+      this.menguarCirculo(Math.abs(valor));
+    }
   }
 
   public void menguarCirculo(int valor) {
-    this.radio /= valor;
+    if (valor >= 0) {
+      this.radio /= valor;
+    } else {
+      this.crecerCirculo(Math.abs(valor));
+    }
   }
 
 // Métodos

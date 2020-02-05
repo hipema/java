@@ -76,10 +76,12 @@ public class Fecha {
   }
 
   // Sumar n días
-  public void sumarNDias(int value) {
+  public Fecha sumarNDias(int value) {
+    Fecha f = new Fecha(this.dia, this.mes, this.anyo);
     for (int i = 0; i < value; i++) {
-      this.sumarUnDia();
+      f = f.sumarUnDia();
     }
+    return new Fecha(f.dia, f.mes, f.anyo);
   }
 
   // Restar 1 día
@@ -144,11 +146,7 @@ public class Fecha {
       return false;
     }
     // dia correcto
-    int[] diasMes = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-    if (Fecha.esBisiesto(anyo)) {
-      diasMes[1] = 29;
-    }
-    return dia > 0 && dia <= diasMes[mes - 1];
+    return dia > 0 && dia <= Fecha.diaMaximoMes(mes, anyo);
   }
 
   static boolean esBisiesto(int anyo) {

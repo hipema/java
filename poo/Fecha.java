@@ -16,6 +16,7 @@ public class Fecha {
 
 	// Constructor
 	Fecha(int dia, int mes, int anyo) {
+		assert (Fecha.fechaCorrecta(dia, mes, anyo));
 		this.dia = dia;
 		this.mes = mes;
 		this.anyo = anyo;
@@ -27,6 +28,7 @@ public class Fecha {
 	}
 
 	public void setDia(int dia) {
+		assert Fecha.fechaCorrecta(dia, this.mes, this.anyo);
 		this.dia = dia;
 	}
 
@@ -35,6 +37,7 @@ public class Fecha {
 	}
 
 	public void setMes(int mes) {
+		assert Fecha.fechaCorrecta(this.dia, mes, this.anyo);
 		this.mes = mes;
 	}
 
@@ -43,6 +46,7 @@ public class Fecha {
 	}
 
 	public void setAnyo(int anyo) {
+		assert Fecha.fechaCorrecta(this.dia, this.mes, anyo);
 		this.anyo = anyo;
 	}
 

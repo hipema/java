@@ -3,20 +3,31 @@ package poo;
 /**
  * Clase que crea objetos Fecha, basandonos en el ejercicio del exámen.
  * 
- * @version 1.0
+ * Ejercicio añadiendo la corrección de clase, y comentarios.
+ * 
+ * @version 3.0
  * @author manuelhidalgo
  *
  */
 
-public class Fecha {
+public class Fecha implements Comparable<Fecha> {
+  // para usar la sobrecarga con compareTo, java nos obliga a implementar  la
+  // interfaz Comparable, que nos permite comparar objetos.
   // Atributos
   private int dia;
   private int mes;
   private int anyo;
 
-  // Constructor
+  /**
+   * Constructor de la clase.
+   * @param dia
+   * @param mes
+   * @param anyo
+   */
   Fecha(int dia, int mes, int anyo) {
-    assert (Fecha.fechaCorrecta(dia, mes, anyo));
+    // En java no necesita que se especifique los métodos estáticos
+    // con Fecha.fechaCorrecta. Además, se puede incluir : "mensaje a mostrar con error"
+    assert fechaCorrecta(dia, mes, anyo): "Construcción de fecha incorrecta"; 
     this.dia = dia;
     this.mes = mes;
     this.anyo = anyo;
@@ -28,7 +39,7 @@ public class Fecha {
   }
 
   public void setDia(int dia) {
-    assert Fecha.fechaCorrecta(dia, this.mes, this.anyo);
+    assert fechaCorrecta(dia, this.mes, this.anyo): "Día incorrecto";
     this.dia = dia;
   }
 
@@ -37,7 +48,7 @@ public class Fecha {
   }
 
   public void setMes(int mes) {
-    assert Fecha.fechaCorrecta(this.dia, mes, this.anyo);
+    assert fechaCorrecta(this.dia, mes, this.anyo): "Mes incorrecto";
     this.mes = mes;
   }
 
@@ -46,12 +57,15 @@ public class Fecha {
   }
 
   public void setAnyo(int anyo) {
-    assert Fecha.fechaCorrecta(this.dia, this.mes, anyo);
+    assert fechaCorrecta(this.dia, this.mes, anyo): "Año incorrecto";
     this.anyo = anyo;
   }
 
   // Métodos
-  // Devuelve nombre del mes.
+  /**
+   * Esta función devuelve el nombre del mes del objeto.
+   * @return String con el nombre del mes de la función.
+   */
   public String nombreMes() {
     String[] meses = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
         "Octubre", "Noviembre", "Diciembre" };
@@ -110,6 +124,9 @@ public class Fecha {
 
   // Devuelve la fecha numérica
   public int fechaNumerica() {
+    /*
+     * Esta función se podría hacer como en la versión original, aunque es más
+     * sencillo mediante la fórmula explicada en clase.
     String fecha;
     int resultado;
     fecha = "".concat(Integer.toString(this.anyo));
@@ -124,7 +141,10 @@ public class Fecha {
       fecha += "".concat(Integer.toString(this.dia));
     }
     resultado = Integer.parseInt(fecha);
-    return resultado;
+    return resultado;*/
+    int fecha;
+    fecha = this.anyo*10000 + this.mes*100 + this.dia;
+    return fecha;
   }
 
   // Compara fechas
@@ -162,7 +182,44 @@ public class Fecha {
   }
 
   // Sobrecarga
+  @Override
   public String toString() {
     return this.dia + " de " + this.nombreMes() + " de " + this.anyo;
   }
+
+  // hashCode hay que mantenerlo. Forma parte del autogenerado del equals.
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + anyo;
+    result = prime * result + dia;
+    result = prime * result + mes;
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    Fecha other = (Fecha) obj;
+    if (anyo != other.anyo)
+      return false;
+    if (dia != other.dia)
+      return false;
+    if (mes != other.mes)
+      return false;
+    return true;
+  }
+
+  @Override
+  public int compareTo(Fecha other) {
+    int resultado = this.fechaNumerica()-other.fechaNumerica();
+    return resultado;
+  }
+  
 }

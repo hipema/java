@@ -1,7 +1,8 @@
 package coleccionesDiccionarios;
 import java.util.ArrayList;
+import java.util.Collections;
 
-public class Ej08Test {
+public class Ej09CartasOrdenadas{
 
   public static void main(String[] args) {
     ArrayList<Ej08cartas> juego = new ArrayList<Ej08cartas>();
@@ -26,6 +27,13 @@ public class Ej08Test {
         contador ++;
       }
     }
+    System.out.println();
+    for (int i=0; i < 10; i++) {
+      System.out.println(juego.get(i));
+    }
+    System.out.println();
+    Collections.sort(juego);
+    System.out.println("Ordenamos el mazo de cartas:");
     for (int i=0; i < 10; i++) {
       System.out.println(juego.get(i));
     }

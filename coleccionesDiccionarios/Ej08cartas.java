@@ -1,6 +1,8 @@
 package coleccionesDiccionarios;
 
-public class Ej08cartas {
+import poo.Fecha;
+
+public class Ej08cartas implements Comparable<Ej08cartas> {
   private int numero;
   private String palo;
   private String nombre;
@@ -68,5 +70,64 @@ public class Ej08cartas {
   @Override
   public String toString() {
     return this.getNombre();
+  }
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+    result = prime * result + numero;
+    result = prime * result + ((palo == null) ? 0 : palo.hashCode());
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    Ej08cartas other = (Ej08cartas) obj;
+    if (nombre == null) {
+      if (other.nombre != null)
+        return false;
+    } else if (!nombre.equals(other.nombre))
+      return false;
+    if (numero != other.numero)
+      return false;
+    if (palo == null) {
+      if (other.palo != null)
+        return false;
+    } else if (!palo.equals(other.palo))
+      return false;
+    return true;
+  }
+  
+  @Override
+  public int compareTo (Ej08cartas other) {
+    //Ordena los palos
+    int resultado;
+    if (this.palo=="Bastos" && (other.palo == "Espadas" || other.palo == "Copas" || other.palo =="Oros")) {
+      return resultado = 1;
+    } else if (this.palo =="Copas" && (other.palo =="Espadas" || other.palo == "Oros")) {
+      return resultado = 1;
+    } else if (this.palo == "Copas" && (other.palo =="Bastos")) {
+      return resultado = -1;
+    } else if (this.palo == "Espadas" && (other.palo == "Oros")) {
+      return resultado = 1;
+    } else if (this.palo == "Espadas" && (other.palo == "Copas" || other.palo =="Bastos")) {
+      return resultado = -1;
+    } else if (this.palo == "Oros" && (other.palo =="Bastos" || other.palo == "Copas" || other.palo == "Espadas")) {
+      return resultado = -1;
+    } else if (this.numero > other.numero) {
+      return resultado = 1;
+    } else if (this.numero < other.numero) {
+      return resultado = -1;
+    } else {
+      return resultado = 0;
+    }
   }
 }

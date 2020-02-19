@@ -12,7 +12,7 @@ public class Ej08Test {
     
     while (contador < 10) {
       Ej08cartas carta2 = new Ej08cartas();
-      for (int i=0; (i < juego.size());i++) {
+      for (int i=0; i < juego.size();i++) {
         if (juego.get(i).equals(carta2)) {
         //if (juego.get(i).getNombre().compareTo(carta2.getNombre())==0) {
           existe = true;

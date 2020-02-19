@@ -38,7 +38,7 @@ public class Ej11MinidiccionarioAzar {
             aux++;
           }
         }
-        if (aux==1) {
+        if (aux>0) {
           palabraExiste = true;
         } else {
           palabraExiste = false;
@@ -51,8 +51,7 @@ public class Ej11MinidiccionarioAzar {
     // Revisar problema igual que comento en el primer trimestre, tema buffer
     for (int i = 0; i < numPalabras; i++) {
       System.out.println("¿Cuál es la traducción de "+aparecidas[i]+"?");
-      respuesta = scanner.nextLine(); scanner.nextLine();
-      System.out.println();
+      respuesta = scanner.next();
       solucion = diccionario.traducirPalabra(aparecidas[i]);
       if (respuesta.equals(solucion)) {
         System.out.println("Resultado correcto");

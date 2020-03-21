@@ -18,25 +18,36 @@ import java.util.Scanner;
  */
 
 public class TestEncriptar {
-  public static void main(String[] args) {
+  public static void main(String[] args) throws Exception {
     Scanner scanner = new Scanner(System.in);
     try {
+      // Comprobamos la cantidad de argumentos recibida en la ejecución del programa.
       if (args.length == 1) {
         String opcion ="";
-        while (!opcion.equals("s") && !opcion.equals("S") && !opcion.equals("n") && !opcion.equals("N")){
-          System.out.println("La información encriptada se guardará en el mismo archivo de origen.\n ¿Desea continuar? (s/n)");
-          opcion = scanner.nextLine();
-        }
+        // Lanzamos aviso de sobreescritura sobre el mismo archivo y preguntamos si continúa o no.
+        do {
+          System.out.println("La información encriptada se guardará en el mismo archivo de origen.\\n ¿Desea continuar? (s/n)");
+          opcion = scanner.nextLine().toUpperCase();
+        } while (!opcion.equals("S") && !opcion.equals("N"));
+        // Java nos permite hacer el "do while", queda más elegante y sería más correcto que hacerlo como en python.
+
+        // Si está de acuerdo en continuar, lanzamos la función encriptar.
         if (opcion.equals("s") || opcion.equals("S")) {
           Encriptar.encriptarFichero(args[0],args[0]);
+        // Si no quiere continuar salimos del programa.
         } else {
           System.exit(0);
         }
       } else if (args.length==2) {
+        // Si recibe dos argumentos, envía ambos archivos para utilizar la función Encriptar.
         Encriptar.encriptarFichero(args[0],args[1]);
-      } // falta por lanzar la excepcioón
+      } else {
+        // Lanzamos mensaje de error en caso de número incorrecto de argumentos.
+        System.err.println("Error en el número de parámetros");
+        System.exit(1);
+      }
     } catch (Exception e){
-      System.out.println("Error");
+      System.out.println("Se ha producido un error.");
       System.exit(1);
     }
   }

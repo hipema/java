@@ -24,17 +24,20 @@ public class Encriptar {
   static Scanner scanner = new Scanner(System.in);
 
   public static void encriptarFichero (String fileRead, String fileWrite) {
-    int clave = -1;
+    boolean seguirEnElCiclo = true;
     String diccionarioPrincipal = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ0123456789";
-    while (clave == -1) {
+    int clave = 0;
+    do {
       try {
         System.out.println("Indica clave a utilizar en el fichero: ");
         clave = scanner.nextInt();
+        seguirEnElCiclo = false;
       } catch (Exception e){
         System.out.println("La clave debe ser un número entero positivo.");
+        scanner.nextLine(); // esta línea vacia el buffer para evitar entrar en un cilo infinito.
       }
-    }  
-    // Leemos archivo recibido y guardamos en variable.
+    } while (seguirEnElCiclo);
+
     try {
       BufferedReader f = new BufferedReader(new FileReader("src/encriptar/encriptado/"+fileRead));
       String linea = f.readLine();
@@ -47,8 +50,6 @@ public class Encriptar {
       }
       int posicion = lectura.length();
       f.close();
-      //System.out.println(lectura);
-      //System.out.println("Tamaño diccionario: "+diccionarioPrincipal.length());
    
       // Abrimos archivo para escritura.
       BufferedWriter fw = new BufferedWriter(new FileWriter("src/encriptar/encriptado/"+fileWrite));
@@ -58,6 +59,8 @@ public class Encriptar {
         String caracterABuscar = Character.toString(lectura.charAt(i));
         if (diccionarioPrincipal.contains(caracterABuscar)){
           int indice = diccionarioPrincipal.indexOf(caracterABuscar);
+          // Esta función falla en caso de utilizar claves muy grandes o negativas, falla.
+          // Resuelto en la versión 2 de igual manera que en python.
           if (indice + clave < 64) {
             escritura.append(diccionarioPrincipal.charAt(indice+clave));
           } else {

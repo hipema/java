@@ -52,10 +52,9 @@ public class Teclado {
   public static double leerDouble() {
     do {
       try {
-        double numero = Double.parseDouble(leerCadena()); 
-        return numero;
+        return Double.parseDouble(leerCadena());
       } catch (Exception e){
-        System.out.println("Introduce un número");
+        System.err.println("Introduce un número");
       }
     } while (true);
   }
@@ -67,21 +66,21 @@ public class Teclado {
   public static double leerDouble(String mensaje) {
     System.out.println(mensaje);
     return leerDouble();
+  }public Teclado() {
+    // TODO Auto-generated constructor stub
   }
-  
   /**
    * Lee un carácter introducido por teclado.
    * @return char
    */
-  public static char leerCaracter() {
+  public static char leerCaracter() {;
     char caracter;
     String cadena = leerCadena();
     while (cadena.length() > 1) {
-      System.out.println("Debe introducir un único carácter");
+      System.err.println("Debe introducir un único carácter");
       cadena = leerCadena();
     }
-    caracter = cadena.charAt(0);
-    return caracter;
+    return cadena.charAt(0);
   }
   
   /**

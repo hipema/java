@@ -38,7 +38,7 @@ public class Ej09NumerosPrimos {
 // Pedimos datos al usuario
       System.out.print("Indicanos la cantidad de los primeros números primos que deseas conocer: ");
       numPrimos = s.nextInt();
-// Iniciamos el cilo para calcular el tiempo.   
+// Iniciamos el ciclo para calcular el tiempo.   
     System.out.println("1: 2");
     contar = 1;
     num = 3;

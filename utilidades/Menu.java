@@ -1,17 +1,14 @@
 package utilidades;
 
-import java.util.ArrayList;
-
 public class Menu {
-  String titulo = null;
-  ArrayList<String> opciones = new ArrayList<String>();
-  int numeroOpciones = opciones.size();
-  
+  private String titulo = null;
+  private String[] opciones = null;
+  private int numeroOpciones = 0;
   // Creamos un menú
-  public Menu (String titulo, ArrayList<String> opciones) {
+  public Menu (String titulo, String[] opciones) {
     this.titulo = titulo;
     this.opciones = opciones;
-    this.numeroOpciones = opciones.size();
+    this.numeroOpciones = opciones.length;
   }
   
   // Métodos del menú
@@ -27,9 +24,9 @@ public class Menu {
     System.out.println();
     for (int i=0; i < this.numeroOpciones; i++) {
       if (i+1 < 10) {
-        System.out.println((i+1)+"  " + opciones.get(i));
+        System.out.println((i+1)+"  " + opciones[i]);
       } else {
-        System.out.println((i+1)+" " + opciones.get(i));
+        System.out.println((i+1)+" " + opciones[i]);
       }
     }
     if (this.numeroOpciones+1 < 10) {

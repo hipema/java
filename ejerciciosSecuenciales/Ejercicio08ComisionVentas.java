@@ -1,61 +1,46 @@
 package ejerciciosSecuenciales;
 
-/*
+import java.util.Scanner;
+
+/**
 08 Ejercicios secuenciales en Java
 
-Programa:
-Un vendedor recibe un sueldo base mas un 10% extra por comisión de sus ventas,
-el vendedor desea saber cuanto dinero obtendrá por concepto de comisiones por
-las tres ventas que realiza en el mes y el total que recibirá en el mes tomando
-en cuenta su sueldo base y comisiones.
+Calcula las comisiones de un vendedor y su salario total, conociendo un
+salario base y el valor de las tres ventas realizadas.
 
-Autor: Manuel Hidalgo Pérez
-Fecha: 01-11-19
-
-Variables a utilizar:
-    * salarioBase (double)
-    * ventaComision1 (double)
-    * ventaComision2 (double)
-    * ventaComision3 (double)
-    * comision (double)
-    * salarioTotal (double)
-    
-ALGORITMO
-    - LEER salarioBase, ventaComision1, ventaComision2, ventaComision3
-    - Cálculos
-        * comision = ventaComision1*0.1 + ventaComision2*0.1 + ventaComision3*0.1
-        * salarioTotal = salarioBase + comision
-    - MOSTRAR resultado
+@author: manolohidalgo_
+@date: 01-11-19
 */
 
 // Inicio del programa y declaración de variables:
 
 public class Ejercicio08ComisionVentas {
   public static void main(String[] args) {
+    Scanner scanner = new Scanner (System.in);
     double salarioBase;
-    double ventaComision1;
-    double ventaComision2;
-    double ventaComision3;
+    double venta1;
+    double venta2;
+    double venta3;
     double comision;
     double salarioTotal;
 
-// Solicitud de datos al usuario
+    // Solicitud de datos al usuario
     System.out.println("Este programa calcula el salario del trabajador contando salario y comisiones.");
     System.out.print("Indica el salario base: ");
-      salarioBase = Double.parseDouble (System.console().readLine());
+      salarioBase = scanner.nextDouble();
     System.out.print("Indica el importe de la primera venta: ");
-      ventaComision1 = Double.parseDouble (System.console().readLine());
+      venta1 = scanner.nextDouble();
     System.out.print("Indica el importe de la segunda venta: ");
-      ventaComision2 = Double.parseDouble (System.console().readLine());
+      venta2 = scanner.nextDouble();
     System.out.print("Indica el importe de la tercera venta: ");
-      ventaComision3 = Double.parseDouble (System.console().readLine());
+      venta3 = scanner.nextDouble();
 
-// Realizamos Cálculos 
+    // Realizamos Cálculos 
 
-comision = ventaComision1*0.1 + ventaComision2*0.1 + ventaComision3*0.1;
-salarioTotal = salarioBase + comision;
+    comision = 0.1 * (venta1 + venta2 + venta3);
+    salarioTotal = salarioBase + comision;
 
-// Mostramos en pantalla
+    // Mostramos en pantalla
     System.out.println("El sueldo total a recibir es "+salarioTotal + ". \nEquivalente al salario base: "+salarioBase + " y comisiones: "+comision);
     
   }

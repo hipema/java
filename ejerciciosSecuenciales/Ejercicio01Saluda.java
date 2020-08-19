@@ -1,20 +1,11 @@
 package ejerciciosSecuenciales;
 
-/*
+/**
 01 Ejercicios secuenciales en Java
 
-Programa:
-Escribir un programa que pregunte al usuario su nombre, y luego lo salude.
-
-Autor: Manuel Hidalgo Pérez
-Fecha: 04-11-19
-
-Variables a utilizar:
-nombre (str)
-
-ALGORITMO
-    - LEER nombre
-    - ESCRIBIR nombre
+Este programa solicita un nombre al usuario y a continuación lo saluda.
+@author: manolohidalgo_
+@date: 04-11-19
 */
 
 // Inicio del programa y declaración de variables:

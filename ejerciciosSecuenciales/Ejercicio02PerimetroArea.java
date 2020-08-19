@@ -1,32 +1,21 @@
 package ejerciciosSecuenciales;
 
+import java.util.Scanner;
+
 /**
 02 Ejercicios secuenciales en Java
 
-Programa:
-Calcular el perí­metro y área de un rectángulo dada su base y su altura.
+Calcula el perí­metro y área de un rectángulo dada su base y su altura.
 
-Autor: Manuel Hidalgo Pérez
-Fecha: 01-11-19
-
-Variables a utilizar:
-    - base (numero)
-    - altura (numero)
-    - area (numero)
-    - perimetro (numero)
-
-ALGORITMO
-    - LEER base, altura
-    - Cálculos
-        - area = base * altura
-        - perimetro = 2*(base+altura)
-    - MOSTRAR resultado
+@author: manolohidalgo_
+@date: 01-11-19
 */
 
 // Inicio del programa y declaración de variables:
 
 public class Ejercicio02PerimetroArea {
   public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
     double base;
     double altura;
     double area;
@@ -35,10 +24,10 @@ public class Ejercicio02PerimetroArea {
 // Solicitud de datos al usuario
     System.out.println("Programa que calcula el area y perimetro de un rectangulo, dada su base y altura: ");
     System.out.print("Dame el valor de la \"base\" del rectángulo: ");
-      base = Double.parseDouble (System.console().readLine());
+      base = scanner.nextDouble();
 
     System.out.print("Dame el valor de la \"altura\" del rectángulo: ");
-      altura = Double.parseDouble (System.console().readLine());
+      altura = scanner.nextDouble();
 
 // Realizamos Cálculos
     area = base * altura;

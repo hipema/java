@@ -1,42 +1,34 @@
 package ejerciciosSecuenciales;
 
-/*
+import java.util.Scanner;
+
+/**
 05 Ejercicios secuenciales en Java
 
-Programa:
-Escribir un programa que convierta un valor dado en grados Fahrenheit a grados Celsius.
+Convierte un valor dado en grados Fahrenheit a grados Celsius.
 
-Autor: Manuel Hidalgo Pérez
-Fecha: 01-11-19
-
-Variables a utilizar:
-    - farenheit (double)
-    - celsius (double)
-
-ALGORITMO
-    - LEER farenheit
-    - Cálculos
-        - celsius = (farenheit - 32) / 1.8
-    - MOSTRAR resultado
+@author: manolohidalgo_
+@date: 01-11-19
 */
 
 // Inicio del programa y declaración de variables:
 
 public class Ejercicio05ConvertirGrados {
   public static void main(String[] args) {
-    double farenheit;
+    Scanner scanner = new Scanner (System.in);
+    double fahrenheit;
     double celsius;
 
 // Solicitud de datos al usuario
     System.out.println("Este programa pasa de grados Farenheit a Celsius");
     System.out.print("Dame la temperatura en grados Farenheit: ");
-      farenheit = Double.parseDouble (System.console().readLine());
+      fahrenheit = scanner.nextDouble();
 
 // Realizamos Cálculos
-    celsius = (farenheit - 32) / 1.8;
+    celsius = (fahrenheit - 32) / 1.8;
 
 // Mostramos en pantalla
-    System.out.println(farenheit +" grados Farenheit son " +celsius + " grados celsius.");
+    System.out.println(fahrenheit +" grados Farenheit son " +celsius + " grados celsius.");
     
   }
 }

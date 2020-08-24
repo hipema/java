@@ -1,31 +1,21 @@
 package ejerciciosSecuenciales;
 
-/*
+import java.util.Scanner;
+
+/**
 18 Ejercicios secuenciales en Java
 
 Programa:
 Pedir el nombre y los dos apellidos de una persona y mostrar las iniciales.
 
-Autor: Manuel Hidalgo Pérez
-Fecha: 02-11-19
-
-Variables a utilizar:
-    * nombre (str)
-    * apellido1 (str)
-    * apellido2 (str)
-    * iniciales (str)
-   
-ALGORITMO
-    - LEER nombre, apellido1, apellido2
-    - Cálculos
-        
-          
-    - MOSTRAR resultado
+@author: manolohidalgo_
+@date: 02-11-19
 */
 
 // Inicio del programa y declaración de variables:
 public class Ejercicio18MuestraIniciales {
   public static void main(String[] args) {
+    Scanner scanner = new Scanner (System.in);
     String nombre;
     String apellido1;
     String apellido2;
@@ -34,17 +24,16 @@ public class Ejercicio18MuestraIniciales {
 // Solicitud de datos al usuario
     System.out.println("Este programa pide nombre y apellidos y después devuelve las iniciales.");
     System.out.print("Nombre: ");
-    nombre = System.console().readLine();
+    nombre = scanner.nextLine();
     System.out.print("Primer apellido: ");
-    apellido1 = System.console().readLine();
+    apellido1 = scanner.nextLine();
     System.out.print("Segundo apellido: ");
-    apellido2 = System.console().readLine();
+    apellido2 = scanner.nextLine();
 
 // Realizamos operaciones 
     iniciales = nombre.substring(0,1)+apellido1.substring(0,1)+apellido2.substring(0,1);
 
 // Mostramos en pantalla
-    System.out.println("Las iniciales son: " +iniciales);
-    
+    System.out.println("Las iniciales son: " +iniciales);    
   }
 }

@@ -1,32 +1,20 @@
 package ejerciciosSecuenciales;
 
-/*
+import java.util.Scanner;
+
+/**
 13 Ejercicios secuenciales en Java
 
-Programa:
-Realizar un algoritmos que lea un número y que muestre su raíz cuadrada y 
-su raíz cúbica. PSeInt no tiene ninguna función predefinida que permita
-calcular la raíz cúbica, ¿cómo se puede calcular?
+Lee un número por teclado y calcula su raíz cuadrada y cúbica.
 
-Autor: Manuel Hidalgo Pérez
-Fecha: 02-11-19
-
-Variables a utilizar:
-    * numero (double)
-    * raiz2 (double)
-    * raiz3 (double)
-   
-ALGORITMO
-    - LEER numero
-    - Cálculos
-        * raiz2 = math.sqrt (numero)
-        * raiz3 = math.pow (numero, (1/3))
-    - MOSTRAR resultado
+@author: manolohidalgo_
+@date: 02-11-19
 */
 
 // Inicio del programa y declaración de variables:
 public class Ejercicio13RaizCuadradaCubica {
   public static void main(String[] args) {
+    Scanner scanner = new Scanner (System.in);
     double numero;
     double raiz2;
     double raiz3;
@@ -34,7 +22,7 @@ public class Ejercicio13RaizCuadradaCubica {
 // Solicitud de datos al usuario
     System.out.println("Este programa calcula la raiz cuadrada y cúbica de un número.");
     System.out.print("Introduce el valor del número: ");
-    numero = Double.parseDouble (System.console().readLine());
+    numero = scanner.nextDouble();
     
 // Realizamos Cálculos 
     raiz2 = Math.sqrt (numero);

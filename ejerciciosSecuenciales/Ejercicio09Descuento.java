@@ -1,44 +1,36 @@
 package ejerciciosSecuenciales;
 
-/*
+import java.util.Scanner;
+
+/**
 09 Ejercicios secuenciales en Java
 
-Programa:
-Una tienda ofrece un descuento del 15% sobre el total de la compra y un
-cliente desea saber cuanto deberá pagar finalmente por su compra.
+Calcula el precio final de una compra aplicando un descuento del 15%,
+conociendo previamente el precio sin descuento.
 
-Autor: Manuel Hidalgo Pérez
-Fecha: 01-11-19
-
-Variables a utilizar:
-    * precio (double)
-    * total (double)
-    
-ALGORITMO
-    - LEER precio
-    - Cálculos
-        * total = precio - (precio *0.15)
-    - MOSTRAR resultado
+@author: manolohidalgo_
+@date: 01-11-19
 */
 
 // Inicio del programa y declaración de variables:
 
 public class Ejercicio09Descuento {
   public static void main(String[] args) {
-    double precio;
-    double total;
+    Scanner scanner = new Scanner (System.in);
+    double precioCompra;
+    double precioDescuento;
 
-// Solicitud de datos al usuario
+    // Solicitud de datos al usuario
     System.out.println("Este programa indica el precio final del producto tras el 15% de descuento.");
     System.out.print("Indica el precio del producto sin descuento: ");
-      precio = Double.parseDouble (System.console().readLine());
+    precioCompra = scanner.nextDouble();
 
-// Realizamos Cálculos 
+    // Realizamos Cálculos 
 
-total = precio - (precio*0.15);
+    precioDescuento = precioCompra - (precioCompra * 0.15);
 
-// Mostramos en pantalla
-    System.out.println("El precio final del producto es de " +total);
+    // Mostramos en pantalla
+    System.out.println("El precio final del producto es de " + precioDescuento);
     
   }
 }

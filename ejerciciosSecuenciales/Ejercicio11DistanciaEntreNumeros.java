@@ -1,41 +1,32 @@
 package ejerciciosSecuenciales;
 
-/*
+import java.util.Scanner;
+
+/**
 11 Ejercicios secuenciales en Java
 
-Programa:
 Pide al usuario dos números y muestra la "distancia" entre ellos (el valor
 absoluto de su diferencia, de modo que el resultado sea siempre positivo)
 
-Autor: Manuel Hidalgo Pérez
-Fecha: 01-11-19
-
-Variables a utilizar:
-    * numero1 (double)
-    * numero2 (double)
-    * distancia (double)
-   
-ALGORITMO
-    - LEER numero1, numero2
-    - Cálculos
-        * distancia = absoluto (numero1 - numero2)
-    - MOSTRAR resultado
+@author: manolohidalgo_
+@date: 01-11-19
 */
 
 // Inicio del programa y declaración de variables:
 
 public class Ejercicio11DistanciaEntreNumeros {
   public static void main(String[] args) {
-    double numero1;
-    double numero2;
-    double distancia;
+    Scanner scanner = new Scanner (System.in);
+    int numero1;
+    int numero2;
+    int distancia;
 
 // Solicitud de datos al usuario
     System.out.println("Este programa calcula la distancia entre dos números dados.");
     System.out.print("Introduce el primer número: ");
-    numero1 = Double.parseDouble (System.console().readLine());
+    numero1 = scanner.nextInt();
     System.out.print("Introduce el segundo número: ");
-    numero2 = Double.parseDouble (System.console().readLine());
+    numero2 = scanner.nextInt();
     
 // Realizamos Cálculos 
 

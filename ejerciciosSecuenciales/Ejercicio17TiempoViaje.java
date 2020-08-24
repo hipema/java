@@ -1,6 +1,8 @@
 package ejerciciosSecuenciales;
 
-/*
+import java.util.Scanner;
+
+/**
 17 Ejercicios secuenciales en Java
 
 Programa:
@@ -8,8 +10,8 @@ Un ciclista parte de una ciudad A a las HH horas, MM minutos y SS segundos.
 El tiempo de viaje hasta llegar a otra ciudad B es de T segundos. Escribir 
 un algoritmo que determine la hora de llegada a la ciudad B.
 
-Autor: Manuel Hidalgo Pérez
-Fecha: 02-11-19
+@author: manolohidalgo_
+@date: 02-11-19
 
 Variables a utilizar:
     * hh (long)
@@ -34,32 +36,37 @@ ALGORITMO
 // Inicio del programa y declaración de variables:
 public class Ejercicio17TiempoViaje {
   public static void main(String[] args) {
-    long hh;
-    long mm;
-    long ss;
-    long tiempo;
-    long totalSegundos;
+    Scanner scanner = new Scanner (System.in);
+    int hh;
+    int mm;
+    int ss;
+    int tiempo;
+    int totalSegundos;
+    int segundosRestantes;
 
 // Solicitud de datos al usuario
     System.out.println("Este programa calcula la hora de llegada de un ciclista conociendo la hora de salida" +
                         "y el tiempo de viaje en segundos");
     System.out.print("Pediremos la hora segmentada, introduce la HORA: ");
-    hh = Long.parseLong(System.console().readLine());
+    hh = scanner.nextInt();
     System.out.print("Introduce los MINUTOS: ");
-    mm = Long.parseLong(System.console().readLine());
+    mm = scanner.nextInt();
     System.out.print ("Introduce los SEGUNDOS: ");
-    ss = Long.parseLong(System.console().readLine());
+    ss = scanner.nextInt();
     System.out.print ("Duración del viaje en segundos: ");
-    tiempo = Long.parseLong(System.console().readLine());
+    tiempo = scanner.nextInt();
     
 // Realizamos Cálculos 
+    // convertimos la hora dada por el usuario a segundos y le sumamos el tiempo del trayecto
     totalSegundos = hh *3600 + mm *60 + ss + tiempo;
+    // Volvemos a traducir, ahora el total de segundos al formato hora.
     hh = totalSegundos / 3600;
-    mm = (totalSegundos - (hh*3600))/60;
-    ss = totalSegundos - hh *3600 - mm *60;
+    segundosRestantes = totalSegundos % 3600;
+    mm = segundosRestantes / 60;
+    ss = segundosRestantes % 60;
 
 // Mostramos en pantalla
-    System.out.println("La hora de llegada a la ciudad B será: "+hh+":"+mm+":"+ss + " horas.");
+    System.out.println("La hora de llegada a la ciudad B será: "+ hh +":" + mm + ":"+ss);
     
   }
 }

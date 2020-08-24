@@ -1,43 +1,31 @@
 package ejerciciosSecuenciales;
 
-/*
+import java.util.Scanner;
+
+/**
 15 Ejercicios secuenciales en Java
 
-Programa:
-Dadas dos variables numéricas A y B, que el usuario debe teclear, se pide
-realizar un algoritmo que intercambie los valores de ambas variables y
-muestre cuanto valen al final las dos variables.
+Programa que recibe dos variables numéricas A y B, y después
+intercambia los valores de las mismas.
 
-Autor: Manuel Hidalgo Pérez
-Fecha: 02-11-19
-
-Variables a utilizar:
-    * valorA (long)
-    * valorB (long)
-    * valorC (long)
-   
-ALGORITMO
-    - LEER valorA, valorB
-    - Cálculos
-        * valorC = valorA
-        * valorA = valorB
-        * valorB = valorC
-    - MOSTRAR resultado
+@author: manolohidalgo_
+@date: 02-11-19
 */
 
 // Inicio del programa y declaración de variables:
 public class Ejercicio15IntercambioDosValores {
   public static void main(String[] args) {
-    long valorA;
-    long valorB;
-    long valorC;
+    Scanner scanner = new Scanner (System.in);
+    int valorA;
+    int valorB;
+    int valorC;
 
 // Solicitud de datos al usuario
     System.out.println("Este programa pide dos valores e intercambia el valor entre ambas variables.");
     System.out.print("Introduce el valor A: ");
-    valorA = Long.parseLong(System.console().readLine());
+    valorA = scanner.nextInt();
     System.out.print("Introduce el valor B: ");
-    valorB = Long.parseLong(System.console().readLine());
+    valorB = scanner.nextInt();
     
     
 // Realizamos Cálculos 

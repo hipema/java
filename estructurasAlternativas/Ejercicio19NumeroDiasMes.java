@@ -1,47 +1,25 @@
 package estructurasAlternativas;
 
-/*
+/**
 19 Ejercicios Estringucturas Alternativas en Java
 
 Programa:
 Escribe un programa que pida un número entero entre uno y doce e imprima el
 número de días que tiene el mes correspondiente.
 
-Autor: Manuel Hidalgo Pérez
-Fecha: 09-11-19
-
-Variables a utilizar:
-    #   mes (int)
-
-ALGORITMO
-    - LEER mes
-    - Cálculos
-       #   Realizamos cálculos de comparación y mostramos resultado
-        # Si es 1 --> Enero --> 31
-        # Si es 2 --> Febrero --> 28
-        # Si es 3 --> Marzo --> 31
-        # Si es 4 --> Abril --> 30
-        # Si es 5 --> Mayo --> 31
-        # Si es 6 --> Junio --> 30
-        # Si es 7 --> Julio --> 31
-        # Si es 8 --> Agosto --> 31
-        # Si es 9 --> Septiembre --> 30
-        # Si es 10 --> Octubre --> 31
-        # Si es 11 --> Noviembre --> 30
-        # Si es 12 --> Diciembre --> 31
-        # Si es otro número --> ERROR: la numeración debe ser de 1 a 12.
-    - MOSTRAR resultado
+@author: manolohidalgo_
+@date: 09-11-19
 */
 
 import java.util.Scanner;
 // Inicio del programa y declaración de variables:
 public class Ejercicio19NumeroDiasMes {
   public static void main(String[] args) {
-    Scanner s = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
     int mes;
 
 // Solicitud de datos al usuario
-    System.out.println("El programa te devuelve el día de la semana seleccionando:");
+    System.out.println("El programa te devuelve el número de días del mes seleccionando:");
     System.out.println(" 1.- Enero.");
     System.out.println(" 2.- Febreo.");
     System.out.println(" 3.- Marzo.");
@@ -54,7 +32,7 @@ public class Ejercicio19NumeroDiasMes {
     System.out.println("10.- Octubre.");
     System.out.println("11.- Noviembre.");
     System.out.println("12.- Diciembre.");
-    mes = s.nextInt();
+    mes = scanner.nextInt();
 
 // Realizamos comparaciones y mostramos el resultado
     if (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12){

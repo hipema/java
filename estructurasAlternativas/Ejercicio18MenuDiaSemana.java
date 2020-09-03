@@ -4,28 +4,19 @@ package estructurasAlternativas;
 18 Ejercicios Estringucturas Alternativas en Java
 
 Programa:
-Realiza un programa que pida el día de la semana (del 1 al 7) y escriba el día correspondiente.
+Realiza un programa que pida el día de la semana (del 1 al 7) y escriba el día 
+correspondiente.
 Si introducimos otro número nos da un error.
 
-Autor: Manuel Hidalgo Pérez
-Fecha: 09-11-19
-
-Variables a utilizar:
-    #   dado (int)
-
-ALGORITMO
-    - LEER dado
-    - Cálculos
-       #   Realizamos cálculos de comparación y mostramos resultado
-  
-    - MOSTRAR resultado
+@author: manolohidalgo_
+@date: 09-11-19
 */
 
 import java.util.Scanner;
 // Inicio del programa y declaración de variables:
 public class Ejercicio18MenuDiaSemana {
   public static void main(String[] args) {
-    Scanner s = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
     int dia;
 
 // Solicitud de datos al usuario
@@ -37,24 +28,32 @@ public class Ejercicio18MenuDiaSemana {
     System.out.println("5.- Viernes.");
     System.out.println("6.- Sábado.");
     System.out.println("7.- Domingo.");
-    dia = s.nextInt();
+    dia = scanner.nextInt();
 
 // Realizamos comparaciones y mostramos el resultado
-    if (dia == 1){
+    switch (dia) {
+    case 1:
       System.out.println("El día seleccionado es LUNES");
-    } else if (dia ==2){
+      break;
+    case 2:
       System.out.println("El día seleccionado es MARTES");
-    } else if (dia == 3){
+      break;
+    case 3:
       System.out.println("El día seleccionado es MIÉRCOLES");
-    } else if (dia == 4){
+      break;
+    case 4:
       System.out.println("El día seleccionado es JUEVES");
-    } else if (dia == 5){
+      break;
+    case 5:
       System.out.println("El día seleccionado es VIERNES");
-    } else if (dia == 6){
+      break;
+    case 6:
       System.out.println("El día seleccionado es SÁBADO");
-    } else if (dia == 7){
+      break;
+    case 7:
       System.out.println("El día seleccionado es DOMINGO");
-    } else {
+      break;
+    default:
       System.out.println("ERROR: número incorrecto.");
     }
   }

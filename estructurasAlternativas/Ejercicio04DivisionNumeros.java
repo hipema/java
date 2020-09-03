@@ -1,44 +1,38 @@
 package estructurasAlternativas;
 
-/*
+import java.util.Scanner;
+
+/**
 04 Ejercicios Estructuras Alternativas en Java
 
-Programa:
-Crea un programa que pida al usuario dos números y muestre su división si el 
-segundo no es cero, o un mensaje de aviso en caso contrario.
+Este programa pide al usuario dos números, muestra el resultado
+de su división, en caso de que el segundo sea 0, muestra un mensaje
+de error.
 
-Autor: Manuel Hidalgo Pérez
-Fecha: 08-11-19
-
-Variables a utilizar:
-    * numero1 (int)
-    * numero2 (int)
-ALGORITMO
-    - LEER numero1, numero2
-    - Cálculos
-    *   si numero2 != 0 --> numero1/numero2
-    *   si numero2 == 0 --> mensaje de aviso        
-    - MOSTRAR resultado
+@author: manolohidalgo_
+@date: 08-11-19
 */
 
 // Inicio del programa y declaración de variables:
 public class Ejercicio04DivisionNumeros {
   public static void main(String[] args) {
-    int numero1;
-    int numero2;
+    Scanner scanner = new Scanner (System.in);
+    int numerador;
+    int denominador;
 
 // Solicitud de datos al usuario
-    System.out.println("Este programa muestra la division entre dos números, si el segundo no es 0.");
+    System.out.println("Este programa muestra la division entre dos números enteros:");
     System.out.print("Introduce el primer número: ");
-    numero1 = Integer.parseInt(System.console().readLine());
+    numerador = scanner.nextInt();
     System.out.print("Introduce el segundo número: ");
-    numero2 = Integer.parseInt(System.console().readLine());
+    denominador = scanner.nextInt();
     
 // Realizamos Cálculos y mostramos en pantalla
-    if (numero2 != 0){
-        System.out.println((double)numero1/(double)numero2);
+    if (denominador != 0){
+        System.out.println((double)numerador/(double)denominador);
     }else {
-        System.out.println("El segundo número introducido es 0. Reinicie el programa e introduzca otro valor.");
+        System.out.println("El segundo número introducido es 0. "
+            + "Reinicie el programa e introduzca un valor válido.");
     }  
   }
 }

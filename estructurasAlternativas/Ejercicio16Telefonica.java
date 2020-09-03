@@ -1,6 +1,6 @@
 package estructurasAlternativas;
 
-/*
+/**
 16 Ejercicios Estructuras Alternativas en Java
 
 Programa:
@@ -14,8 +14,8 @@ cada concepto una persona que realiza una llamada.
 
 Interpretamos que el coste de la llamada es por tramos.
 
-Autor: Manuel Hidalgo Pérez
-Fecha: 09-11-19
+@author: manolohidalgo_
+@date: 09-11-19
 
 Variables a utilizar:
     #   minutos (int)
@@ -44,47 +44,55 @@ import java.util.Scanner;
 // Inicio del programa y declaración de variables:
 public class Ejercicio16Telefonica {
   public static void main(String[] args) {
-    Scanner s = new Scanner(System.in);
-    int minutos;
+    Scanner scanner = new Scanner(System.in);
+    int duracion;
     String dia;
     String horario;
     double precio;
     double impuesto;
 
-// Solicitud de datos al usuario
+    // Solicitud de datos al usuario
     System.out.println("Calculamos el precio base de la llamada y el impuesto a pagar:");
     System.out.print("Duración de la llamada en minutos: ");
-    minutos = s.nextInt();
+    duracion = scanner.nextInt();
     System.out.print("Día de la semana: ");
-    dia = s.next(); s.nextLine();
-    if (dia.compareTo("Domingo") == 0 || (dia.compareTo("domingo") == 0)){
-        System.out.print("¿La llamada se realizó en horario de mañana o tarde? ");
-        horario = s.nextLine();
-    } else {
-        horario = "";
-    }
-
-// Calculamos el precio base a pagar:
-    if (minutos > 10){
+    dia = scanner.next(); scanner.nextLine();
+    
+    // Calculamos el precio base a pagar:
+    if (duracion > 10){
         precio = 3;
-    } else if (minutos > 8){
+    } else if (duracion > 8){
         precio = 2.5;
-    } else if (minutos > 5){
+    } else if (duracion > 5){
         precio = 1.80;
     } else {
         precio = 1;
+    }   
+    
+    // Preguntamos día y calculamos impuesto correspondiente.
+    if (!dia.toUpperCase().equals("DOMINGO")) {
+      System.out.print("¿La llamada se realizó en horario de mañana o tarde? ");
+      horario = scanner.nextLine();
+      if (horario.toUpperCase().equals("MAÑANA")) {
+        impuesto = precio * 0.15;
+      } else if (horario.toUpperCase().equals("TARDE")) {
+        impuesto = precio * 0.10;
+      // Si el horario es incorrecto se dará valor 0 al impuesto y el programa 
+      // presentará error.
+      } else {
+        impuesto = 0; 
+      }
+    } else {
+      impuesto = precio * 0.03;
     }
-
- // Calculamos impuesto:
-    if (dia.compareTo("Domingo") == 0 || dia.compareTo("domingo") == 0){
-      impuesto = precio * 0.30;
-    } else if (horario.compareTo("mañana") == 0){
-      impuesto = precio *0.15;
-    } else{
-      impuesto = precio*0.10;
-    } 
-
-// Realizamos Cálculos y mostringamos en pantalla
-    System.out.println("El precio total de la llamada es de " + (precio + impuesto) + " siendo el precio base de " + precio + "y el impuesto a pagar " + impuesto);
+    
+    // Mostramos resultado en pantalla, si horario incorrecto, mostrará error.
+    if (impuesto == 0) {
+      System.out.println("El horario introducido es incorrecto, reinicia el programa "
+          + "e introduce los valores correctos.");
+    } else {
+      System.out.println("El precio total de la llamada es de " + (precio + impuesto) 
+          + " siendo el precio base de " + precio + " y el impuesto a pagar " + impuesto);
+    }
   }
 }

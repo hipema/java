@@ -1,53 +1,41 @@
 package estructurasAlternativas;
 
-/*
+/**
 07 Ejercicios Estructuras Alternativas en Java
 
-Programa:
-Realiza un algoritmo que calcule la potencia, para ello pide por teclado la base
-y el exponente. Pueden ocurrir tres cosas:
+El programa calcula el resultado de una potencia, recibiendo la
+base y exponente. Pueden ocurrir tres casos:
 
 - El exponente sea positivo, sólo tienes que imprimir la potencia.
 - El exponente sea 0, el resultado es 1.
 - El exponente sea negativo, el resultado es 1/potencia con el exponente positivo.
 
-Autor: Manuel Hidalgo Pérez
-Fecha: 09-11-19
-
-Variables a utilizar:
-    * base (long)
-    * exponente (long)
-ALGORITMO
-    - LEER base, exponente
-    - Cálculos
-    *   Comparar si exponente es > 0 --> mostrar potencia
-    *   Si es 0 --> 1
-    *   Si es < 0 --> resultado es base elevada a 1/exponente
-    - MOSTRAR resultado
+@author: manolohidalgo_
+@date: 09-11-19
 */
 
 import java.util.Scanner;
 // Inicio del programa y declaración de variables:
 public class Ejercicio07Potencia {
   public static void main(String[] args) {
-    Scanner s = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
     int base;
     int exponente;
 
 // Solicitud de datos al usuario
-    System.out.println("Este programa nos calcula la potencia de un número dado y su exponente.");
+    System.out.println("Calculamos la potencia de un número:");
     System.out.print("Introduce la base de la potencia: ");
-    base = s.nextInt();
+    base = scanner.nextInt();
     System.out.print("Introduce el exponente de la potencia: ");
-    exponente = s.nextInt();
+    exponente = scanner.nextInt();
     
 // Realizamos Cálculos y mostramos en pantalla
-    if (base > 1) {
-      System.out.println("El resultado es " + (Math.pow((double)base, (double)exponente)));
-    }else if (base == 0) {
-       System.out.println("El resultado es 0.");
+    if (base >= 1) {
+      System.out.println("El resultado es " + (Math.pow(base, exponente)));
+    }else if (exponente == 0) {
+       System.out.println("El resultado es 1.");
     }else {
-        System.out.println("El resultado es " + (Math.pow((double)base, 1/(double)exponente)));
+        System.out.println("El resultado es " + (Math.pow(base, 1/exponente)));
     }
     }
   }

@@ -1,6 +1,6 @@
 package estructurasAlternativas;
 
-/*
+/**
 08 Ejercicios Estructuras Alternativas en Java
 
 Programa:
@@ -9,44 +9,36 @@ mensaje ‘ACEPTADA’ si la nota es mayor o igual a cinco, la edad es mayor o i
 dieciocho y el sexo es ‘F’. En caso de que se cumpla lo mismo, pero el sexo sea ‘M’, debe 
 imprimir ‘POSIBLE’. Si no se cumplen dichas condiciones se debe mostrar ‘NO ACEPTADA’.
 
-Autor: Manuel Hidalgo Pérez
-Fecha: 09-11-19
-
-Variables a utilizar:
-    * nota (long)
-    * edad (long)
-    * sexo (string)
-ALGORITMO
-    - LEER nota, edad, sexo
-    - Cálculos
-        *   Comparar si nota >= 5   edad    >= 18   sexo = M --> ACEPTADA
-        *   Comparar si nota >= 5   edad    >= 18   sexo = F --> POSIBLE
-        *   Si no --> NO ACEPTADA
-    - MOSTRAR resultado
+@author: manolohidalgo_
+@date: 09-11-19
 */
 
 import java.util.Scanner;
 // Inicio del programa y declaración de variables:
 public class Ejercicio08Solicitud {
   public static void main(String[] args) {
-    Scanner s = new Scanner(System.in);
-    long nota;
-    long edad;
+    Scanner scanner = new Scanner(System.in);
+    int nota;
+    int edad;
     String sexo;
 
 // Solicitud de datos al usuario
-    System.out.println("Este programa nos calcula la aceptación de una solicitud en base a los siguientes parámetros:");
+    System.out.println("Este programa nos calcula la aceptación de una solicitud"
+        + " en base a los siguientes parámetros:");
     System.out.print("Edad: ");
-    edad = s.nextInt();
+    edad = scanner.nextInt();
     System.out.print("Nota: ");
-    nota = s.nextInt(); s.nextLine();
+    nota = scanner.nextInt(); scanner.nextLine();
     System.out.print("Sexo (M o F): ");
-    sexo = s.nextLine();
+    sexo = scanner.nextLine();
     
 // Realizamos Cálculos y mostramos en pantalla
-    if ((nota > 5) && (edad > 18) && (sexo.compareTo("M") == 0)) {
+    if (!sexo.toUpperCase().equals("M") && !sexo.toUpperCase().equals("F")) {
+      System.out.println("El valor de sexo introducido es incorrecto.\n"
+          + "por favor, reenvíe el formulario.");
+    } else if ((nota > 5) && (edad > 18) && (sexo.toUpperCase().equals("M"))) {
       System.out.println("POSIBLE");
-    }else if ((nota > 5) && (edad > 18) && (sexo.compareTo("F") == 0)) {
+    }else if ((nota > 5) && (edad > 18) && (sexo.toUpperCase().equals("F"))) {
        System.out.println("ACEPTADA");
     }else {
         System.out.println("NO ACEPTADA");

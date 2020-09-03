@@ -1,35 +1,29 @@
 package estructurasAlternativas;
 
-/*
+import java.util.Scanner;
+
+/**
 03 Ejercicios Estructuras Alternativas en Java
 
-Programa:
-Escribe un programa que lea un número e indique si es par o impar.
+Este programa lee un número e indica si es par o impar.
 
-Autor: Manuel Hidalgo Pérez
-Fecha: 07-11-19
-
-Variables a utilizar:
-    * numero (long)
-ALGORITMO
-    - LEER numero
-    - Cálculos
-    *   si numero / 2 --> resto = 0, es par.        
-    - MOSTRAR resultado
+@author: manolohidalgo_
+@date: 07-11-19
 */
 
 // Inicio del programa y declaración de variables:
 public class Ejercicio03ParImpar {
   public static void main(String[] args) {
-    long numero;
+    Scanner scanner = new Scanner (System.in);
+    int numero;
 
 // Solicitud de datos al usuario
     System.out.println("Este programa calcula si un número es par o impar.");
     System.out.print("Introduce el número: ");
-    numero = Long.parseLong(System.console().readLine());
+    numero = scanner.nextInt();
     
 // Realizamos Cálculos y mostramos en pantalla
-    if ((double)numero % 2 == 0){
+    if (numero % 2 == 0){
         System.out.println("El número, " +numero + " es par.");
     }else {
         System.out.println("El número " +numero + " es impar.");

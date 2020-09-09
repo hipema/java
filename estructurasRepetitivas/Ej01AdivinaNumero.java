@@ -1,6 +1,6 @@
 package estructurasRepetitivas;
 
-/*
+/**
 01 Ejercicios Estructuras Repetitivas en Java
 
 Programa:
@@ -12,52 +12,43 @@ El programa termina cuando se acierta el número (además te dice en cuantos
 intentos lo has acertado), si se llega al limite de intentos te muestra el 
 número que había generado.
 
-Autor: Manuel Hidalgo Pérez
-Fecha: 09-11-19
-
-Variables a utilizar:
-    #   numero (int)
-    #   intento (int)
-    #   contador (int)
-
-ALGORITMO
-    - LEER mes
-    - Cálculos
-        Asignamos valor a numero de forma aleatoria - numero = random.randint (1,100)
-    
-        Pedir usuario que realice intentos
-
-    -   MOSTRAR resultados mediante condicionales y ciclo while 
+@author: manolohidalgo_
+@date: 09-11-19
 */
 
 import java.util.Scanner;
 // Inicio del programa y declaración de variables:
 public class Ej01AdivinaNumero {
   public static void main(String[] args) {
-    Scanner s = new Scanner(System.in);
-    int numero;
+    Scanner scanner = new Scanner(System.in);
+    int numeroAleatorio;
     int intento;
-    int contador = 9;
+    int contador = 10;
 
-// Solicitud de datos al usuario
-    numero = (int) (Math.random()*100+1);
-    System.out.println("Intenta adivinar un número aleatorio entre el 1 y 100. Tienes 10 intentos.");
-    System.out.print("Introduce el número que creas posible: ");
-    intento = s.nextInt();
-    while (intento != numero && contador <= 10 && contador > 0){
-      if (numero > intento){
-        System.out.println("El número que buscas es mayor, te quedan " + contador + " intentos: ");
+    // Obtención de número aleatorio
+    numeroAleatorio = (int) (Math.random()*100+1);
+    System.out.println("Intenta adivinar un número aleatorio entre el 1 y 100. "
+        + "Tienes 10 intentos.");
+    System.out.println(numeroAleatorio);
+    // Realización del ciclo do-while
+    do {
+      System.out.println("Número contador: " + contador);
+      System.out.print("Introduce el número que creas posible: ");
+      intento = scanner.nextInt();
+      if (intento > numeroAleatorio) {
+        System.out.println("El número que buscas es menor, te quedan "
+            + (contador-1) + " intentos: ");
+      } else if (intento < numeroAleatorio){
+        System.out.println("El número que buscas es mayor, te quedan "
+            + (contador-1) + " intentos: ");
       } else {
-        System.out.println("El número que buscas es menor, te quedan " +contador + " intentos: ");
+        System.out.print("¡CORRECTO! "+ numeroAleatorio + " era el número que estabas "
+            + "buscando, has necesitado " + (10 - (contador-1)) +" intentos.");
       }
-      System.out.print("Introduce un nuevo valor: ");
-      intento = s.nextInt();
-      contador = contador-1;
-    }
-    if (numero == intento){
-      System.out.print("¡CORRECTO! "+ numero + " era el número que estabas buscando, has necesitado " + (10-contador) +" intentos.");
-    } else {
-      System.out.print("LO SENTIMOS, se han acabado todos los intentos, el número que estabas buscando era " + numero);
+      contador--;
+    } while (intento != numeroAleatorio && contador > 0);
+    if (contador == 0) {
+      System.out.println("Has perdido. El numero aleatorio era " + numeroAleatorio);
     }
   }
 }

@@ -1,6 +1,6 @@
 package estructurasRepetitivas;
 
-/*
+/**
 02 Ejercicios Estructuras Repetitivas en Java
 
 Programa:
@@ -8,29 +8,15 @@ Realizar un algoritmo que pida números (se pedirá por teclado la cantidad de n
  introducir). El programa debe informar de cuantos números introducidos son mayores que
  0, menores que 0 e iguales a 0.
 
-Autor: Manuel Hidalgo Pérez
-Fecha: 09-11-19
-
-Variables a utilizar:
-    numero (int)
-    contador (int)
-    mayor (int)
-    menor (int)
-    igual (int)
-
-ALGORITMO
-    - LEER contador
-    - Cálculos
-        While contador >0 - Introducir números
-        En cada ciclo, sumar a "mayor, menor o igual" según el número introducido.
-    -   MOSTRAR resultados 
+@author: manolohidalgo_
+@date: 09-11-19
 */
 
 import java.util.Scanner;
 // Inicio del programa y declaración de variables:
 public class Ej02PideNumeros {
   public static void main(String[] args) {
-    Scanner s = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
     int numero = 0;
     int contador;
     int mayor = 0;
@@ -40,18 +26,24 @@ public class Ej02PideNumeros {
 // Solicitud de datos al usuario
     System.out.println("El programa pide una cantidad de números indicada e indica cuantos son positivos, negativos o iguales a cero.");
     System.out.print("Introduce la cantidad de número que vamos a introducir: ");
-    contador = s.nextInt();
+    contador = scanner.nextInt();
+    do {
+      if (contador <= 0) {
+        System.out.println("El número introducido debe ser un entero positivo. Por favor, introduce un nuevo valor.");
+        contador = scanner.nextInt();
+      }
+    } while (contador <= 0);
 
     while (contador > 0){
       System.out.println("Introduce un número: ");
-      numero = s.nextInt();
+      numero = scanner.nextInt();
       contador = contador-1;
       if (numero > 0){
-        mayor += 1;
+        mayor++;
       } else if (numero < 0){
-        menor +=1;
+        menor++;
       } else {
-        igual +=1;
+        igual++;
       }
     }    
     System.out.println("Has introducido todos los números:\n" + mayor + " son mayores a 0\n" + menor + " son menores a 0\n" + igual + " son iguales a 0.");

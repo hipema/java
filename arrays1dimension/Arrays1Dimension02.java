@@ -9,17 +9,8 @@ import java.util.Scanner;
  *	valores a los elementos según la tabla que se muestra a continuación.
  *	Muestra el contenido de todos los elementos del array. ¿Qué sucede con
  *	los valores de los elementos que no han sido inicializados?
- * 
- * VARIABLES
- * int i - contador para realizar el recorrido del ciclo.
- * String[] simbolo - array qu guarda los valores indicados en el enunciado.
- * 
- * INICIO PROGRAMA 
- * 1.- Realizamos la asignación de los valores indicados en el programa.
- * 2.- Mostramos en pantalla el array complleto, vemos que los huecos que no están
- * 		 asignados, al ser un String, nos aparecen con la indicación "null".
-
- * @author manuelhidalgo
+ *
+ * @author manuelhidalgo_
  * @since 24-11-2019
  */
 

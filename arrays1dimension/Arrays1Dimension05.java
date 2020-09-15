@@ -8,22 +8,7 @@ import java.util.Scanner;
  *	Escribe un programa que pida 10 números por teclado y que luego muestre los
  *	números introducidos junto con las palabras “máximo” y “mínimo” al lado del
  *	máximo y del mínimo respectivamente.
- * 
- * VARIABLES
- * 	int i - contador para recorrer los ciclos for.
- * 	int[] numero - array que almacenará los diez números introducidos por el usuario.
- * 	int maximo = Integer.MIN_VALUE - definición inicial de la variable que guardará el valor máximo, inicializada
- * 																	 mediante el valor mínimo disponible en java.
- * 	int minimo = Integer.MAX_VALUE; - definición inicial de la variable que guardará el valor mínimo, inicializada
- * 																		mediante el valor máximo disponible en java.
- * 
- * INICIO PROGRAMA 
- * 1.- Presentación del programa y petición de los numeros al usuario.
- * 2.- Conforme el usuario vaya introduciendo números, se actualizará la variable "máximo" y "mínimo".
- * 3.- Mediante un ciclo for indicamos que muestre por pantalla los numeros introducidos en el primer array.
- * 		 Introducimos condición para que en caso de que el número del array coincida con el almacenado en "máximo"
- * 		 o "mínimo", muestre el mensaje a su lado indicandolo.
-
+ *
  * @author manuelhidalgo
  * @since 24-11-2019
  */

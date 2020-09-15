@@ -3,7 +3,7 @@ package arrays1dimension;
 import java.util.Scanner;
 
 /**
- *Ejercicio01
+ *  Ejercicio01
  *
  *	Define un array de 12 números enteros con nombre num y asigna los valores
  *	según la tabla que se muestra a continuación. Muestra el contenido de todos
@@ -19,7 +19,7 @@ import java.util.Scanner;
  * 2.- Observamos al ejecutar, que los huecos donde no se ha asignado valor, se le asigna
  * 		 automáticamente el valor 0.
 
- * @author manuelhidalgo
+ * @author manuelhidalgo_
  * @since 24-11-2019
  */
 
@@ -38,7 +38,7 @@ public class Arrays1Dimension01 {
 		num[9]=120;		
 	
 		for (i=0; i<12;i++) {
-			System.out.println("Valor array numero " + i+": "+num[i]);			
+			System.out.println("Valor array posición " + i+": "+num[i]);			
 		}
 	}
 }

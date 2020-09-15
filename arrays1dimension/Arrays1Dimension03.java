@@ -26,18 +26,17 @@ public class Arrays1Dimension03 {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		int i;
-		int[] numero = new int[10];
+		int[] numeros = new int[10];
 		
 		System.out.println("El programa pedirá 10 números y después serán impresos en orden inverso:");
 		
-		for (i=0;i<10;i++) {
+		for (int i =0;i<10;i++) {
 			System.out.print("Número "+(i+1)+": ");
-			numero[i] = scanner.nextInt();
+			numeros[i] = scanner.nextInt();
 		}		
 		System.out.println("Valores introducidos en orden inverso");
-		for (i=9; i>=0;i--) {
-			System.out.println("Numero " + (i+1)+": "+numero[i]);			
+		for (int i=9; i>=0;i--) {
+			System.out.println("Numero " + (i+1)+": "+numeros[i]);			
 		}
 	}
 }
